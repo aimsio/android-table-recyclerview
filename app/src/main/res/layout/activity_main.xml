@@ -9,36 +9,56 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btn_add_rows"
-        android:text="add row to top"
-        android:textAllCaps="false"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btn_remove_rows"
-        android:text="remove first rows"
-        android:textAllCaps="false"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btn_add_rows"
+            android:text="@string/add_row_to_top"
+            android:textAllCaps="false"
+            android:minEms="8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    <Button
-        android:id="@+id/btn_hide_title"
-        android:text="hide title"
-        android:textAllCaps="false"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btn_remove_rows"
+            android:text="@string/remove_first_rows"
+            android:textAllCaps="false"
+            android:minEms="8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    <Button
-        android:id="@+id/btn_show_title"
-        android:textAllCaps="false"
-        android:text="show title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_hide_title"
+            android:text="@string/hide_title"
+            android:textAllCaps="false"
+            android:minEms="8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btn_show_title"
+            android:textAllCaps="false"
+            android:text="@string/show_title"
+            android:minEms="8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
 
     <io.github.aimsio.tablerecyclerview.TableRecyclerView
-        android:layout_marginTop="8dp"
+        android:layout_margin="8dp"
         android:id="@+id/table_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">tablelayout-demo</string>
+    <string name="add_row_to_top">add row to top</string>
+    <string name="remove_first_rows">remove first rows</string>
+    <string name="hide_title">hide "title" column</string>
+    <string name="show_title">show "title" column</string>
 </resources>
