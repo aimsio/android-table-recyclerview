@@ -3,6 +3,8 @@
 /local.properties
 .idea
 app/build/
+table-recyclerview/build/
+table-recyclerview/libs/
 .DS_Store
 /build
 /captures

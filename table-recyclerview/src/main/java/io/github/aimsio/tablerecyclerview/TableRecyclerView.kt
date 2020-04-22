@@ -1,4 +1,4 @@
-package io.github.aimsio.tablelayout
+package io.github.aimsio.tablerecyclerview
 
 import android.content.Context
 import android.util.AttributeSet

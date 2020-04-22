@@ -1,4 +1,4 @@
-package io.github.aimsio.tablelayout
+package io.github.aimsio.tablerecyclerview
 
 import android.view.LayoutInflater
 import android.view.View
