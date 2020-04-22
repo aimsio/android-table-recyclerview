@@ -1,2 +1,3 @@
 rootProject.name='tablelayout-demo'
 include ':app'
+include ':tablelayout'
