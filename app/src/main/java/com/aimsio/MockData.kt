@@ -19,8 +19,6 @@ data class Person(
     val email: String,
     @SerializedName("gender")
     val gender: String,
-    @SerializedName("address")
-    val address: String,
     @SerializedName("city")
     val city: String,
     @SerializedName("country")

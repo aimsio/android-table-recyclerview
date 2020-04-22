@@ -3,8 +3,18 @@ package com.aimsio
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.children
 import io.github.aimsio.tablerecyclerview.TableColumnNameView
 import kotlinx.android.synthetic.main.table_column.view.*
+import kotlinx.android.synthetic.main.table_column.view.linearlayout
+import kotlinx.android.synthetic.main.table_column.view.txtCity
+import kotlinx.android.synthetic.main.table_column.view.txtCountry
+import kotlinx.android.synthetic.main.table_column.view.txtEmail
+import kotlinx.android.synthetic.main.table_column.view.txtFirstName
+import kotlinx.android.synthetic.main.table_column.view.txtGender
+import kotlinx.android.synthetic.main.table_column.view.txtId
+import kotlinx.android.synthetic.main.table_column.view.txtLastName
+import kotlinx.android.synthetic.main.table_row.view.*
 
 class PersonColumnNameView : TableColumnNameView {
     override fun createView(inflater: LayoutInflater, parent: ViewGroup): View {
@@ -14,6 +24,11 @@ class PersonColumnNameView : TableColumnNameView {
     override fun bindView(columnView: View, hiddenColumnsIndices: List<Int>) {
         val resources = columnView.context.resources
         columnView.apply {
+
+            linearlayout.children.forEach {
+                it.visibility = View.VISIBLE
+            }
+
             txtId.text = resources.getString(R.string.id)
             txtAvatar.text = resources.getString(R.string.avatar)
             txtFirstName.text = resources.getString(R.string.first_name)
@@ -22,8 +37,6 @@ class PersonColumnNameView : TableColumnNameView {
             txtGender.text = resources.getString(R.string.gender)
             txtCity.text = resources.getString(R.string.city)
             txtCountry.text = resources.getString(R.string.country)
-
-            group.visibility = View.VISIBLE
 
             hiddenColumnsIndices.forEach {
                 when (it) {
