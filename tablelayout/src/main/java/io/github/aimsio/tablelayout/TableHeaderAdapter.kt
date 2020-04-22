@@ -2,33 +2,35 @@ package io.github.aimsio.tablelayout
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import io.github.aimsio.tablelayout.TableViewAdapter
-import io.github.aimsio.tablelayout.TableViewHolder
 
 class TableHeaderAdapter(private val tableHeaderView: TableHeaderView) : TableViewAdapter() {
 
-    private val hiddenColumnsIndexList: MutableList<Int> = mutableListOf()
+    private val hiddenColumnsIndices: MutableList<Int> = mutableListOf()
 
     fun hideColumns(list: List<Int>) {
-        hiddenColumnsIndexList.clear()
-        hiddenColumnsIndexList.addAll(list)
+        hiddenColumnsIndices.clear()
+        hiddenColumnsIndices.addAll(list)
 
         notifyDataSetChanged()
     }
 
     fun showAllColumns() {
-        hiddenColumnsIndexList.clear()
+        hiddenColumnsIndices.clear()
         notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int = 1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TableViewHolder {
-        val view = tableHeaderView.createView(LayoutInflater.from(parent.context), parent)
+        val inflater = LayoutInflater.from(parent.context)
+        val view = tableHeaderView.createView(inflater, parent)
         return TableViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: TableViewHolder, position: Int) {
-        tableHeaderView.bindView(columnView = holder.itemView, hiddenColumnsIndices = hiddenColumnsIndexList)
+        tableHeaderView.bindView(
+            columnView = holder.itemView,
+            hiddenColumnsIndices = hiddenColumnsIndices
+        )
     }
 }

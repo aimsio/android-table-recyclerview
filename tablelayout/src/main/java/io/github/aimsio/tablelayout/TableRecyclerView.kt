@@ -20,7 +20,7 @@ class TableRecyclerView @JvmOverloads constructor(
 
     init {
         val inflater = LayoutInflater.from(context)
-        val view = inflater.inflate(R.layout.table_layout, this)
+        val view = inflater.inflate(R.layout.table_recyclerview, this)
         headerRecyclerview = view.findViewById(R.id.table_header_recyclerview)
         rowsRecyclerview = view.findViewById(R.id.table_rows_recyclerview)
 

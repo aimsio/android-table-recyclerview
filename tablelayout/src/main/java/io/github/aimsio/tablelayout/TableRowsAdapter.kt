@@ -8,7 +8,7 @@ class TableRowsAdapter(private val tableRowView: TableRowView) : TableViewAdapte
 
     private val currentList: MutableList<TableModel> = mutableListOf()
 
-    private val hiddenColumnsIndexList: MutableList<Int> = mutableListOf()
+    private val hiddenColumnsIndices: MutableList<Int> = mutableListOf()
 
     fun updateData(newList: List<TableModel>) {
         val diffCallback = TableModelDiffCallback(
@@ -26,26 +26,23 @@ class TableRowsAdapter(private val tableRowView: TableRowView) : TableViewAdapte
     }
 
     fun hideColumns(list: List<Int>) {
-        hiddenColumnsIndexList.clear()
-        hiddenColumnsIndexList.addAll(list)
+        hiddenColumnsIndices.clear()
+        hiddenColumnsIndices.addAll(list)
 
         notifyDataSetChanged()
     }
 
     fun showAllColumns() {
-        hiddenColumnsIndexList.clear()
+        hiddenColumnsIndices.clear()
         notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int = currentList.size
 
-    override fun getItemViewType(position: Int): Int = if (position == 0) 0 else 1
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TableViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val itemView = tableRowView.createView(inflater, parent)
         return TableViewHolder(itemView)
-
     }
 
     override fun onBindViewHolder(
@@ -57,7 +54,7 @@ class TableRowsAdapter(private val tableRowView: TableRowView) : TableViewAdapte
 
         tableRowView.bindView(
             rowIndex = holder.adapterPosition,
-            hiddenColumnsIndices = hiddenColumnsIndexList,
+            hiddenColumnsIndices = hiddenColumnsIndices,
             model = model,
             rowView = holder.itemView,
             payLoad = payloads
@@ -69,7 +66,7 @@ class TableRowsAdapter(private val tableRowView: TableRowView) : TableViewAdapte
 
         tableRowView.bindView(
             rowIndex = holder.adapterPosition,
-            hiddenColumnsIndices = hiddenColumnsIndexList,
+            hiddenColumnsIndices = hiddenColumnsIndices,
             model = model,
             rowView = holder.itemView
         )
