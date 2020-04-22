@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal">
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group"
+        app:constraint_referenced_ids="linear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </androidx.constraintlayout.widget.Group>
+
+    <LinearLayout
+        android:id="@+id/linear"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtId"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/table_data_bg"
+            tools:text="Rank"
+            tools:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="64dp"
+            android:gravity="center"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imgAvatar"
+                android:layout_width="56dp"
+                android:layout_height="40dp"
+                android:scaleType="fitCenter"
+                tools:ignore="ContentDescription" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtFirstName"
+            android:layout_width="100dp"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@drawable/table_data_bg"
+            tools:text="Item NameLot of so somany names that appear to be there is no there is no way   "
+            tools:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txtLastName"
+            android:layout_width="124dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/table_data_bg"
+            tools:text="Year"
+            tools:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txtEmail"
+            android:layout_width="156dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/table_data_bg"
+            tools:text="Cost (in millions)"
+            tools:textAlignment="center"
+            tools:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txtGender"
+            android:layout_width="156dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/table_data_bg"
+            tools:text="Extra One"
+            tools:textAlignment="center"
+            tools:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txtCity"
+            android:layout_width="156dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/table_data_bg"
+            tools:text="Extra Three"
+            tools:textAlignment="center"
+            tools:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txtCountry"
+            android:layout_width="156dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/table_data_bg"
+            tools:text="Extra Three"
+            tools:textAlignment="center"
+            tools:textSize="18sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,4 +4,13 @@
     <string name="remove_first_rows">remove first rows</string>
     <string name="hide_title">hide "title" column</string>
     <string name="show_title">show "title" column</string>
+    <string name="id">Id</string>
+    <string name="avatar">Avatar</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="gender">Gender</string>
+    <string name="address">Address</string>
+    <string name="city">City</string>
+    <string name="country">Country</string>
 </resources>

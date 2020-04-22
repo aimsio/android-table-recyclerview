@@ -19,7 +19,7 @@ interface TableRowView {
     fun getChangePayload(old: TableModel, new: TableModel): List<Any>?
 }
 
-interface TableHeaderView {
+interface TableColumnNameView {
 
     fun createView(inflater: LayoutInflater, parent: ViewGroup): View
 

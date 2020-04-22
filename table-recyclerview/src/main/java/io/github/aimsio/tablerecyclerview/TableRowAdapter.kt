@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 
-class TableRowsAdapter(private val tableRowView: TableRowView) : TableViewAdapter() {
+class TableRowAdapter(private val tableRowView: TableRowView) : TableViewAdapter() {
 
     private val currentList: MutableList<TableModel> = mutableListOf()
 

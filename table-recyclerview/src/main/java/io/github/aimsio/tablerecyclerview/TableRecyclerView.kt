@@ -15,8 +15,8 @@ class TableRecyclerView @JvmOverloads constructor(
     private val headerRecyclerview: RecyclerView
     private val rowsRecyclerview: RecyclerView
 
-    private lateinit var rowsAdapter: TableRowsAdapter
-    private lateinit var headerAdapter: TableHeaderAdapter
+    private lateinit var rowAdapter: TableRowAdapter
+    private lateinit var columnNameAdapter: TableColumnNameAdapter
 
     init {
         val inflater = LayoutInflater.from(context)
@@ -28,25 +28,25 @@ class TableRecyclerView @JvmOverloads constructor(
         rowsRecyclerview.layoutManager = LinearLayoutManager(context)
     }
 
-    fun setUp(tableHeaderView: TableHeaderView, tableRowView: TableRowView) {
-        headerAdapter = TableHeaderAdapter(tableHeaderView)
-        headerRecyclerview.adapter = headerAdapter
+    fun setUp(tableColumnNameView: TableColumnNameView, tableRowView: TableRowView) {
+        columnNameAdapter = TableColumnNameAdapter(tableColumnNameView)
+        headerRecyclerview.adapter = columnNameAdapter
 
-        rowsAdapter = TableRowsAdapter(tableRowView)
-        rowsRecyclerview.adapter = rowsAdapter
+        rowAdapter = TableRowAdapter(tableRowView)
+        rowsRecyclerview.adapter = rowAdapter
     }
 
     fun updateTable(rows: List<TableModel>) {
-        rowsAdapter.updateData(rows)
+        rowAdapter.updateData(rows)
     }
 
     fun hideColumns(hiddenColumnsIndices: List<Int>) {
-        headerAdapter.hideColumns(hiddenColumnsIndices)
-        rowsAdapter.hideColumns(hiddenColumnsIndices)
+        columnNameAdapter.hideColumns(hiddenColumnsIndices)
+        rowAdapter.hideColumns(hiddenColumnsIndices)
     }
 
     fun showAllColumns() {
-        headerAdapter.showAllColumns()
-        rowsAdapter.showAllColumns()
+        columnNameAdapter.showAllColumns()
+        rowAdapter.showAllColumns()
     }
 }

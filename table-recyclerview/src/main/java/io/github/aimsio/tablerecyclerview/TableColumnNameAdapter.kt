@@ -3,7 +3,7 @@ package io.github.aimsio.tablerecyclerview
 import android.view.LayoutInflater
 import android.view.ViewGroup
 
-class TableHeaderAdapter(private val tableHeaderView: TableHeaderView) : TableViewAdapter() {
+class TableColumnNameAdapter(private val tableColumnNameView: TableColumnNameView) : TableViewAdapter() {
 
     private val hiddenColumnsIndices: MutableList<Int> = mutableListOf()
 
@@ -23,12 +23,12 @@ class TableHeaderAdapter(private val tableHeaderView: TableHeaderView) : TableVi
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TableViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val view = tableHeaderView.createView(inflater, parent)
+        val view = tableColumnNameView.createView(inflater, parent)
         return TableViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: TableViewHolder, position: Int) {
-        tableHeaderView.bindView(
+        tableColumnNameView.bindView(
             columnView = holder.itemView,
             hiddenColumnsIndices = hiddenColumnsIndices
         )

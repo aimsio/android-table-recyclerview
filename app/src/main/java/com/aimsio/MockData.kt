@@ -4,6 +4,7 @@ import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 import com.google.gson.reflect.TypeToken
+import io.github.aimsio.tablerecyclerview.TableModel
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
@@ -26,7 +27,7 @@ data class Person(
     val country: String,
     @SerializedName("avatar")
     val avatar: String
-)
+) : TableModel
 
 enum class PersonColumns(val uniqueName: String) {
 
@@ -47,11 +48,7 @@ class DataGenerator {
 
     companion object {
 
-        fun columns(): List<Column> {
-            return PersonColumns.values().map { Column(it.uniqueName, it.name) }
-        }
-
-        fun rows(context: Context): ArrayList<Person> {
+        fun personList(context: Context): ArrayList<Person> {
             return Gson().fromJson(
                 getMockDataJson(context),
                 object : TypeToken<ArrayList<Person>>() {}.type
