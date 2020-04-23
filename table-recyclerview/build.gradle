@@ -38,3 +38,32 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
+
+ext
+        {
+            bintrayRepo = 'maven'
+            bintrayName = 'table-recyclerview'
+            orgName = 'farhad'
+
+            publishedGroupId = 'io.github.aimsio'
+            artifact = 'table-recyclerview'
+            libraryVersion = '1.0.0'
+
+            libraryName = 'table-recyclerview'
+            libraryDescription = 'yet another table layout for Android using recyclerviews + show/hide columns'
+
+            siteUrl = 'https://github.com/aimsio/android-table-recyclerview.git'
+            gitUrl = 'https://github.com/aimsio/android-table-recyclerview.git'
+
+            developerId = 'farhad'
+            developerName = 'Farhad Faghihi'
+            developerEmail = 'ifarhadfaghihi@gmail.com'
+
+            licenseName = 'GNU General Public License v3.0'
+            licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+            allLicenses = ["GPL-3.0"]
+        }
+
+
+apply from: rootProject.file('gradle/install.gradle')
+apply from: rootProject.file('gradle/bintray-android.gradle')
