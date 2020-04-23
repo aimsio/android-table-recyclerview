@@ -1,8 +1,13 @@
 package io.github.aimsio.tablerecyclerview
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class TableRowAdapter(private val tableRowView: TableRowView) : TableViewAdapter() {
 
@@ -11,18 +16,25 @@ class TableRowAdapter(private val tableRowView: TableRowView) : TableViewAdapter
     private val hiddenColumnsIndices: MutableList<Int> = mutableListOf()
 
     fun updateData(newList: List<TableModel>) {
-        val diffCallback = TableModelDiffCallback(
-            oldList = currentList,
-            newList = newList,
-            tableRowView = tableRowView
-        )
 
-        val diffResult = DiffUtil.calculateDiff(diffCallback)
+        val coroutineScope = CoroutineScope(Dispatchers.IO)
+        val adapter = this
 
-        currentList.clear()
-        currentList.addAll(newList)
+        coroutineScope.launch {
 
-        diffResult.dispatchUpdatesTo(this)
+            val diffCallback = TableModelDiffCallback(
+                oldList = currentList,
+                newList = newList,
+                tableRowView = tableRowView
+            )
+
+            val diffResult = DiffUtil.calculateDiff(diffCallback)
+
+            currentList.clear()
+            currentList.addAll(newList)
+
+            withContext(Dispatchers.Main) { diffResult.dispatchUpdatesTo(adapter) }
+        }
     }
 
     fun hideColumns(list: List<Int>) {
