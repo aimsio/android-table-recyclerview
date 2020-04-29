@@ -1,21 +1,27 @@
-package io.github.aimsio.tablerecyclerview
+package io.github.aimsio.tablerecyclerview.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.RecyclerView
+import io.github.aimsio.tablerecyclerview.view.TableViewHolder
+import io.github.aimsio.tablerecyclerview.model.TableModel
+import io.github.aimsio.tablerecyclerview.model.TableRowView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class TableRowAdapter(private val tableRowView: TableRowView) : TableViewAdapter() {
+/**
+ * The adapter for building and displaying row in [TableRecyclerView]
+ */
+open class TableRowAdapter(private val tableRowView: TableRowView) : RecyclerView.Adapter<TableViewHolder>() {
 
     private val currentList: MutableList<TableModel> = mutableListOf()
 
     private val hiddenColumnsIndices: MutableList<Int> = mutableListOf()
 
-    fun updateData(newList: List<TableModel>) {
+    open fun updateData(newList: List<TableModel>) {
 
         val coroutineScope = CoroutineScope(Dispatchers.IO)
         val adapter = this
@@ -37,14 +43,14 @@ class TableRowAdapter(private val tableRowView: TableRowView) : TableViewAdapter
         }
     }
 
-    fun hideColumns(list: List<Int>) {
+    open fun hideColumns(list: List<Int>) {
         hiddenColumnsIndices.clear()
         hiddenColumnsIndices.addAll(list)
 
         notifyDataSetChanged()
     }
 
-    fun showAllColumns() {
+    open fun showAllColumns() {
         hiddenColumnsIndices.clear()
         notifyDataSetChanged()
     }

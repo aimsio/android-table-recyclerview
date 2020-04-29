@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.children
 import com.squareup.picasso.Picasso
-import io.github.aimsio.tablerecyclerview.TableModel
-import io.github.aimsio.tablerecyclerview.TableRowView
+import io.github.aimsio.tablerecyclerview.model.TableModel
+import io.github.aimsio.tablerecyclerview.model.TableRowView
 import kotlinx.android.synthetic.main.table_row.view.*
 import kotlinx.android.synthetic.main.table_row.view.txtCity
 import kotlinx.android.synthetic.main.table_row.view.txtCountry

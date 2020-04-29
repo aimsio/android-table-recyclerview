@@ -13,11 +13,40 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        showTable()
+        personList.addAll(DataGenerator.personList(this))
 
+        /**
+         * 1- prepare your implementation of ColumnName view
+         * 2- prepare your implementation of Row View
+         * notice that in order to columns widths to stay consistent,
+         * you better use the same view for row and column name layout.
+         * the heights of rows are controlled by [TableRecyclerView]
+         */
+        val columnView = PersonColumnNameView()
+        val rowView = PersonRowView()
+
+        /**
+         * 3- Call setUp, passing row and columnName view implementations
+         */
+        table_recyclerview.setUp(columnView, rowView)
+
+        /**
+         * 4- Call updateTable and pass your list of data
+         */
+        table_recyclerview.updateTable(personList)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        setButtonClickListeners()
+    }
+
+    private fun setButtonClickListeners() {
         btn_add_rows.setOnClickListener {
             val id = Random(System.currentTimeMillis()).nextInt(101, 400).toString()
-            personList.add(0,
+            personList.add(
+                0,
                 Person(
                     id = id,
                     firstName = "user $id",
@@ -38,23 +67,15 @@ class MainActivity : AppCompatActivity() {
             table_recyclerview.updateTable(personList)
         }
 
-        btn_show_title.setOnClickListener {
+        btn_show_all_columns.setOnClickListener {
             table_recyclerview.showAllColumns()
         }
 
-        btn_hide_title.setOnClickListener {
+        /**
+         * Columns are zero-indexed, so this methods hide the second and third column!
+         */
+        btn_hide_columns.setOnClickListener {
             table_recyclerview.hideColumns(listOf(1, 2))
         }
-    }
-
-    private fun showTable() {
-        personList.addAll(DataGenerator.personList(this))
-
-        val columnView = PersonColumnNameView()
-        val rowView = PersonRowView()
-
-        table_recyclerview.setUp(columnView, rowView)
-
-        table_recyclerview.updateTable(personList)
     }
 }

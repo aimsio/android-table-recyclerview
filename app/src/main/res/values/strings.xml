@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">tablelayout-demo</string>
-    <string name="add_row_to_top">add row to top</string>
-    <string name="remove_first_rows">remove first rows</string>
-    <string name="hide_title">hide FirsName column</string>
-    <string name="show_title">show all columns</string>
+    <string name="app_name">Aimsio Table Recyclerview Demo</string>
+    <string name="add_row_to_top">+ Row</string>
+    <string name="remove_first_rows">- Row</string>
+    <string name="hide_columns">- Columns</string>
+    <string name="show_all_columns">+ Columns</string>
     <string name="id">Id</string>
     <string name="avatar">Avatar</string>
     <string name="first_name">First Name</string>

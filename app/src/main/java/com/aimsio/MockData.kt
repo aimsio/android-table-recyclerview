@@ -4,7 +4,7 @@ import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 import com.google.gson.reflect.TypeToken
-import io.github.aimsio.tablerecyclerview.TableModel
+import io.github.aimsio.tablerecyclerview.model.TableModel
 import java.io.BufferedReader
 import java.io.InputStreamReader
 

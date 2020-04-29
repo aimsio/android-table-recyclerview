@@ -1,20 +1,27 @@
-package io.github.aimsio.tablerecyclerview
+package io.github.aimsio.tablerecyclerview.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import io.github.aimsio.tablerecyclerview.view.TableViewHolder
+import io.github.aimsio.tablerecyclerview.model.TableColumnNameView
 
-class TableColumnNameAdapter(private val tableColumnNameView: TableColumnNameView) : TableViewAdapter() {
+/**
+ *
+ */
+open class TableColumnNameAdapter(private val tableColumnNameView: TableColumnNameView) :
+    RecyclerView.Adapter<TableViewHolder>() {
 
     private val hiddenColumnsIndices: MutableList<Int> = mutableListOf()
 
-    fun hideColumns(list: List<Int>) {
+    open fun hideColumns(list: List<Int>) {
         hiddenColumnsIndices.clear()
         hiddenColumnsIndices.addAll(list)
 
         notifyDataSetChanged()
     }
 
-    fun showAllColumns() {
+    open fun showAllColumns() {
         hiddenColumnsIndices.clear()
         notifyDataSetChanged()
     }

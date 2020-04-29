@@ -1,7 +1,14 @@
-package io.github.aimsio.tablerecyclerview
+package io.github.aimsio.tablerecyclerview.adapter
 
 import androidx.recyclerview.widget.DiffUtil
+import io.github.aimsio.tablerecyclerview.model.TableModel
+import io.github.aimsio.tablerecyclerview.model.TableRowView
 
+/**
+ * The base diffutil callback that's used to calculate and dispatch updates to TableRecyclerView
+ * Nothing fancy here, just remember to cast [TableModel] objects to your own model object when
+ * implementing this class
+ */
 class TableModelDiffCallback(
     private val oldList: List<TableModel>,
     private val newList: List<TableModel>,

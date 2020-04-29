@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,8 +9,25 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <io.github.aimsio.tablerecyclerview.adapter.TableRecyclerView
+        android:layout_margin="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linear_actions"
+        android:id="@+id/table_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+
     <LinearLayout
+        android:background="@color/colorPrimary"
+        android:id="@+id/linear_actions"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         android:gravity="center"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -19,7 +36,6 @@
             android:id="@+id/btn_add_rows"
             android:text="@string/add_row_to_top"
             android:textAllCaps="false"
-            android:minEms="8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -27,40 +43,23 @@
             android:id="@+id/btn_remove_rows"
             android:text="@string/remove_first_rows"
             android:textAllCaps="false"
-            android:minEms="8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btn_show_all_columns"
+            android:textAllCaps="false"
+            android:text="@string/show_all_columns"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btn_hide_columns"
+            android:text="@string/hide_columns"
+            android:textAllCaps="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/btn_hide_title"
-            android:text="@string/hide_title"
-            android:textAllCaps="false"
-            android:minEms="8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <Button
-            android:id="@+id/btn_show_title"
-            android:textAllCaps="false"
-            android:text="@string/show_title"
-            android:minEms="8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-
-    <io.github.aimsio.tablerecyclerview.TableRecyclerView
-        android:layout_margin="8dp"
-        android:id="@+id/table_recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

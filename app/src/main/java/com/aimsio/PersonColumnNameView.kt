@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.children
-import io.github.aimsio.tablerecyclerview.TableColumnNameView
+import io.github.aimsio.tablerecyclerview.model.TableColumnNameView
 import kotlinx.android.synthetic.main.table_column.view.*
 import kotlinx.android.synthetic.main.table_column.view.linearlayout
 import kotlinx.android.synthetic.main.table_column.view.txtCity
@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.table_column.view.txtFirstName
 import kotlinx.android.synthetic.main.table_column.view.txtGender
 import kotlinx.android.synthetic.main.table_column.view.txtId
 import kotlinx.android.synthetic.main.table_column.view.txtLastName
-import kotlinx.android.synthetic.main.table_row.view.*
 
 class PersonColumnNameView : TableColumnNameView {
     override fun createView(inflater: LayoutInflater, parent: ViewGroup): View {

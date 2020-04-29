@@ -1,11 +1,13 @@
-package io.github.aimsio.tablerecyclerview
+package io.github.aimsio.tablerecyclerview.model
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import io.github.aimsio.tablerecyclerview.model.TableModel
 
-interface TableModel
-
+/**
+ * The interface for how a table row is built and created
+ */
 interface TableRowView {
 
     fun createView(inflater: LayoutInflater, parent: ViewGroup): View
@@ -19,9 +21,3 @@ interface TableRowView {
     fun getChangePayload(old: TableModel, new: TableModel): List<Any>?
 }
 
-interface TableColumnNameView {
-
-    fun createView(inflater: LayoutInflater, parent: ViewGroup): View
-
-    fun bindView(columnView: View, hiddenColumnsIndices: List<Int>)
-}
