@@ -4,13 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import io.github.aimsio.tablerecyclerview.view.TableViewHolder
 import io.github.aimsio.tablerecyclerview.model.TableModel
 import io.github.aimsio.tablerecyclerview.model.TableRowView
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import io.github.aimsio.tablerecyclerview.view.TableViewHolder
+import kotlinx.coroutines.*
 
 /**
  * The adapter for building and displaying row in [TableRecyclerView]
@@ -36,10 +33,13 @@ open class TableRowAdapter(private val tableRowView: TableRowView) : RecyclerVie
 
             val diffResult = DiffUtil.calculateDiff(diffCallback)
 
-            currentList.clear()
-            currentList.addAll(newList)
+            withContext(Dispatchers.Main) {
+                currentList.clear()
+                currentList.addAll(newList)
 
-            withContext(Dispatchers.Main) { diffResult.dispatchUpdatesTo(adapter) }
+                diffResult.dispatchUpdatesTo(adapter)
+                coroutineScope.cancel()
+            }
         }
     }
 

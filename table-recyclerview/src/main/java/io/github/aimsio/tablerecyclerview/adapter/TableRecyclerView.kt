@@ -7,8 +7,6 @@ import android.widget.HorizontalScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.github.aimsio.tablerecyclerview.R
-import io.github.aimsio.tablerecyclerview.adapter.TableColumnNameAdapter
-import io.github.aimsio.tablerecyclerview.adapter.TableRowAdapter
 import io.github.aimsio.tablerecyclerview.model.TableColumnNameView
 import io.github.aimsio.tablerecyclerview.model.TableModel
 import io.github.aimsio.tablerecyclerview.model.TableRowView
@@ -45,8 +43,7 @@ open class TableRecyclerView @JvmOverloads constructor(
      * Notice that you only have to invoke this method once when setting up your layout.
      */
     open fun setUp(tableColumnNameView: TableColumnNameView, tableRowView: TableRowView) {
-        columnNameAdapter =
-            TableColumnNameAdapter(tableColumnNameView)
+        columnNameAdapter = TableColumnNameAdapter(tableColumnNameView)
         headerRecyclerview.adapter = columnNameAdapter
 
         rowAdapter = TableRowAdapter(tableRowView)
