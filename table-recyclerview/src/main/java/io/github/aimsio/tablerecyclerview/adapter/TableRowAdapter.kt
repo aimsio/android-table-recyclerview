@@ -1,5 +1,6 @@
 package io.github.aimsio.tablerecyclerview.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -12,7 +13,12 @@ import kotlinx.coroutines.*
 /**
  * The adapter for building and displaying row in [TableRecyclerView]
  */
-open class TableRowAdapter(private val tableRowView: TableRowView) : RecyclerView.Adapter<TableViewHolder>() {
+open class TableRowAdapter(private val tableRowView: TableRowView) :
+    RecyclerView.Adapter<TableViewHolder>() {
+
+    companion object {
+        private const val TAG = "tableRecyclerView"
+    }
 
     private val currentList: MutableList<TableModel> = mutableListOf()
 
@@ -25,20 +31,24 @@ open class TableRowAdapter(private val tableRowView: TableRowView) : RecyclerVie
 
         coroutineScope.launch {
 
-            val diffCallback = TableModelDiffCallback(
-                oldList = currentList,
-                newList = newList,
-                tableRowView = tableRowView
-            )
+            try {
+                val diffCallback = TableModelDiffCallback(
+                    oldList = currentList,
+                    newList = newList,
+                    tableRowView = tableRowView
+                )
 
-            val diffResult = DiffUtil.calculateDiff(diffCallback)
+                val diffResult = DiffUtil.calculateDiff(diffCallback)
 
-            withContext(Dispatchers.Main) {
-                currentList.clear()
-                currentList.addAll(newList)
+                withContext(Dispatchers.Main) {
+                    currentList.clear()
+                    currentList.addAll(newList)
 
-                diffResult.dispatchUpdatesTo(adapter)
-                coroutineScope.cancel()
+                    diffResult.dispatchUpdatesTo(adapter)
+                    coroutineScope.cancel()
+                }
+            } catch (e: Exception) {
+                Log.d(TAG, "error in updatedData: ${e.message}")
             }
         }
     }
