@@ -47,6 +47,10 @@ open class TableRecyclerView @JvmOverloads constructor(
         headerRecyclerview.adapter = columnNameAdapter
 
         rowAdapter = TableRowAdapter(tableRowView)
+
+        rowAdapter.setHasStableIds(true)
+        columnNameAdapter.setHasStableIds(true)
+
         rowsRecyclerview.adapter = rowAdapter
     }
 

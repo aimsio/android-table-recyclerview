@@ -67,6 +67,10 @@ open class TableRowAdapter(private val tableRowView: TableRowView) :
 
     override fun getItemCount(): Int = currentList.size
 
+    override fun getItemId(position: Int): Long = position.toLong()
+
+    override fun getItemViewType(position: Int): Int = position
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TableViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val itemView = tableRowView.createView(inflater, parent)

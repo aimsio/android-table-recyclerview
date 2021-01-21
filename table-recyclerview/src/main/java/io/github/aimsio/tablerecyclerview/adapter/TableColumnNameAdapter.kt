@@ -3,12 +3,9 @@ package io.github.aimsio.tablerecyclerview.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import io.github.aimsio.tablerecyclerview.view.TableViewHolder
 import io.github.aimsio.tablerecyclerview.model.TableColumnNameView
+import io.github.aimsio.tablerecyclerview.view.TableViewHolder
 
-/**
- *
- */
 open class TableColumnNameAdapter(private val tableColumnNameView: TableColumnNameView) :
     RecyclerView.Adapter<TableViewHolder>() {
 
@@ -27,6 +24,10 @@ open class TableColumnNameAdapter(private val tableColumnNameView: TableColumnNa
     }
 
     override fun getItemCount(): Int = 1
+
+    override fun getItemId(position: Int): Long = position.toLong()
+
+    override fun getItemViewType(position: Int): Int = position
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TableViewHolder {
         val inflater = LayoutInflater.from(parent.context)
