@@ -47,7 +47,7 @@ ext
 
             publishedGroupId = 'io.github.aimsio'
             artifact = 'table-recyclerview'
-            libraryVersion = '1.1.3'
+            libraryVersion = '1.1.4'
 
             libraryName = 'table-recyclerview'
             libraryDescription = 'yet another table layout for Android using recyclerviews + show/hide columns'

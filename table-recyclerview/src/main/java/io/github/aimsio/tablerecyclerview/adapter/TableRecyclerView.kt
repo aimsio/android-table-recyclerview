@@ -44,13 +44,11 @@ open class TableRecyclerView @JvmOverloads constructor(
      */
     open fun setUp(tableColumnNameView: TableColumnNameView, tableRowView: TableRowView) {
         columnNameAdapter = TableColumnNameAdapter(tableColumnNameView)
+        columnNameAdapter.setHasStableIds(true)
         headerRecyclerview.adapter = columnNameAdapter
 
         rowAdapter = TableRowAdapter(tableRowView)
-
         rowAdapter.setHasStableIds(true)
-        columnNameAdapter.setHasStableIds(true)
-
         rowsRecyclerview.adapter = rowAdapter
     }
 
